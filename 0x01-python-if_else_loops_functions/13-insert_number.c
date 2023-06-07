@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
  * insert_node - inserts a new node
@@ -9,40 +11,36 @@
  * Return: the address of the new node, or NULL if it
  * failed.
  */
+
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new;
-	listint_t *h;
-	listint_t *h_prev;
+	listint_t *current = *head;
+	listint_t *new = NULL;
+	listint_t *temp = NULL;
 
-	h = *head;
-	new = malloc(sizeof(listint_t));
-
-	if (new == NULL)
+	if (!head)
 		return (NULL);
 
-	while (h != NULL)
-	{
-		if (h->n > number)
-			break;
-		h_prev = h;
-		h = h->next;
-	}
-
+	new = malloc(sizeof(listint_t));
+	if (!new)
+		return (NULL);
 	new->n = number;
+	new->next = NULL;
 
-	if (*head == NULL)
+	if (!*head || (*head)->n > number)
 	{
-		new->next = NULL;
-		*head = new;
+		new->next = *head;
+		return (*head = new);
 	}
 	else
 	{
-		new->next = h;
-		if (h == *head)
-			*head = new;
-		else
-			h_prev->next = new;
+		while (current && current->n < number)
+		{
+			temp = current;
+			current = current->next;
+		}
+		temp->next = new;
+		new->next = current;
 	}
 
 	return (new);
