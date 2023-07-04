@@ -44,13 +44,11 @@
             str of the rectangle
 
         """
-
-        rectangle = ""
-
-        if self.width == 0 or self.height == 0:
+         if self.__width == 0 or self.__height == 0:
+            return ""
+        else:
+            rectangle = ""
+            for _ in range(self.__height - 1):
+                rectangle += "#" * self.__width + "\n"
+            rectangle += "#" * self.__width
             return rectangle
-
-        for i in range(self.height):
-            rectangle += ("#" * self.width) + "\n"
-
-        return rectangle[:-1]
