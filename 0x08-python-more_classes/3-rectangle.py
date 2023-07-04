@@ -1,3 +1,18 @@
+#!/usr/bin/python3
+"""Defines a rectangle class """
+
+
+class Rectangle:
+    """Defines a rectangle class """
+    def __init__(self, width=0, height=0):
+        """Initializes a new instance of the class"""
+        self.height = height
+        self.width = width
+
+    @property
+    def width(self):
+        """Return the width of the rectangle"""
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -36,8 +51,7 @@
         if w == 0 or h == 0:
             peri = 0
         return "{}".format(peri)
-
-    def __str__(self):
+     def __str__(self):
         """ Method that returns the Rectangle #
 
         Returns:
