@@ -51,14 +51,13 @@ class Rectangle:
         if w == 0 or h == 0:
             peri = 0
         return "{}".format(peri)
-     def __str__(self):
-        """ Method that returns the Rectangle #
+
+    def __str__(self):
+        """Method that returns the Rectangle #
 
         Returns:
-            str of the rectangle
-
-        """
-         if self.__width == 0 or self.__height == 0:
+            str of the rectangle"""
+        if self.__width == 0 or self.__height == 0:
             return ""
         else:
             rectangle = ""
