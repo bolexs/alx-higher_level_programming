@@ -6,9 +6,9 @@ if (argss.length === 2) {
 } else if (argss.length === 3) {
   console.log(0);
 } else {
-    let maxi = Math.max.apply(null, argss.slice(2));
-    const index = argss.indexOf(maxi.toString());
-    argss.splice(index, 1);
-    maxi = Math.max.apply(null, argss.slice(2));
-    console.log(maxi);
+  let maxi = Math.max.apply(null, argss.slice(2));
+  const index = argss.indexOf(maxi.toString());
+  argss.splice(index, 1);
+  maxi = Math.max.apply(null, argss.slice(2));
+  console.log(maxi);
 }
